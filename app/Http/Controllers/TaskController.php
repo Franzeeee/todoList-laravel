@@ -31,14 +31,20 @@ class TaskController extends Controller
     public function update($id)
     {
 
-        $task = Task::find($id);
+        $taskData = Task::find($id);
 
-        return view('update', compact('task'));
+        return view('update', ['task' => $taskData]);
     }
 
     public function updateTask(Request $request, $id)
     {
-        dd($id);
+        $taskData = Task::find($id);
+
+        if ($taskData) {
+            $taskData->update(['task' => $request->task]);
+        }
+
+        return redirect()->route('home');
     }
 
     public function deleteTask($id)

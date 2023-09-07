@@ -25,7 +25,7 @@
         <form method="POST" action="{{ route('updateTask', $task->id) }}">
             @csrf
             <input type="text" name="task" value="{{$task->task}}"/>
-            <a href="{{route('home')}}">Update Task</a>
+            <button>Update Task</button>
         </form>
     </div>
 </body>
